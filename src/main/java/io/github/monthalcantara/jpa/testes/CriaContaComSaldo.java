@@ -6,20 +6,20 @@ import javax.persistence.Persistence;
 
 import io.github.monthalcantara.jpa.modelo.Conta;
 
-public class CriaConta {
-public static void main(String[] args) {
+public class CriaContaComSaldo {
+	public static void main(String[] args) {
+		
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("contas");
 	EntityManager em = emf.createEntityManager();
 	
 	Conta conta = new Conta();
-	conta.setId(1L);
-	conta.setTitular("Junior");
-	conta.setAgencia(1234);
-	conta.setNumero(4321);
-	conta.setSaldo(200.0);
+	conta.setTitular("Jr");
+	conta.setAgencia(5678);
+	conta.setNumero(8765);
+	conta.setSaldo(500.0);
 	
 	em.getTransaction().begin();
-	em.merge(conta);
+	em.persist(conta);
 	em.getTransaction().commit();
 	
 }
